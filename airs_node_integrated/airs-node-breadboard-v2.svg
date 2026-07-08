@@ -1,0 +1,141 @@
+<svg viewBox="0 0 1060 980" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Malgun Gothic',sans-serif" role="img" aria-labelledby="ttl desc">
+<title id="ttl">AIRS 노드 빵판 배선도 v2</title>
+<desc id="desc">ESP32-C3와 PIR, mmWave, IR 수신/송신 부품을 브레드보드에 꽂는 위치와 점퍼 연결.</desc>
+<style>
+  .title{font-size:20px;font-weight:700;fill:#2b2722;}
+  .sub{font-size:12.5px;fill:#756b5f;}
+  .name{font-size:13px;font-weight:700;fill:#2b2722;}
+  .col{font-size:10px;fill:#8a8073;font-family:'Consolas',monospace;}
+  .pin{font-size:11px;font-family:'Consolas',monospace;font-weight:700;}
+  .cell{font-size:12px;fill:#2b2722;}
+  .cellh{font-size:12px;font-weight:700;fill:#1f5f68;}
+  .note{font-size:12px;fill:#756b5f;}
+  .board{fill:#efe7d6;stroke:#c9bda6;stroke-width:1.5;}
+  .blk{fill:#fffdf8;stroke:#8a8073;stroke-width:1.3;}
+  .esp{fill:#e4f0ee;stroke:#1f5f68;stroke-width:2;}
+  .drv{fill:#fbf1da;stroke:#986a1b;stroke-width:1.4;}
+  .hole{fill:#d8cdbd;}
+  .red{stroke:#c0392b;stroke-width:3;fill:none;} .redt{fill:#c0392b;}
+  .blu{stroke:#2d5b8a;stroke-width:3;fill:none;} .blut{fill:#2d5b8a;}
+  .org{stroke:#e67e22;stroke-width:3;fill:none;} .orgt{fill:#e67e22;}
+  .sig{stroke:#1f5f68;stroke-width:3;fill:none;} .sigt{fill:#1f5f68;font-weight:700;}
+</style>
+<rect x="0" y="0" width="1060" height="980" fill="#f4f1ea"/>
+<text x="30" y="36" class="title">AIRS 노드 빵판(브레드보드) 배선도</text>
+<text x="30" y="56" class="sub">부품을 아래 열 위치에 꽂고, 색 점퍼로 전원(＋)·접지(－)·신호를 연결. 정확한 배선은 하단 표 기준.</text>
+
+<!-- ===== 부품 이름 밴드 (보드 위, 겹침 방지) ===== -->
+<text x="140" y="92" text-anchor="middle" class="name" fill="#1f5f68">ESP32-C3</text>
+<text x="140" y="108" text-anchor="middle" class="sub">1~9열 · 중앙 걸침</text>
+<text x="378" y="92" text-anchor="middle" class="name">HC-SR501 (PIR)</text>
+<text x="378" y="108" text-anchor="middle" class="sub">12~14열</text>
+<text x="560" y="92" text-anchor="middle" class="name">HLK-LD2410D</text>
+<text x="560" y="108" text-anchor="middle" class="sub">16~18열 · mmWave</text>
+<text x="726" y="92" text-anchor="middle" class="name">TSOP38238</text>
+<text x="726" y="108" text-anchor="middle" class="sub">20~22열 · IR수신</text>
+<text x="915" y="92" text-anchor="middle" class="name" fill="#986a1b">IR 송신부</text>
+<text x="915" y="108" text-anchor="middle" class="sub">24~28열</text>
+
+<!-- ===== 브레드보드 ===== -->
+<rect x="40" y="150" width="985" height="300" rx="6" class="board"/>
+<!-- 상단 레일 -->
+<text x="30" y="176" text-anchor="end" class="redt pin">＋</text>
+<line x1="60" y1="172" x2="1005" y2="172" class="red"/>
+<text x="30" y="196" text-anchor="end" class="blut pin">－</text>
+<line x1="60" y1="192" x2="1005" y2="192" class="blu"/>
+<!-- 열 번호 눈금 -->
+<g class="col">
+  <text x="80" y="216">1</text><text x="146" y="216">3</text><text x="212" y="216">5</text>
+  <text x="278" y="216">7</text><text x="344" y="216">9</text><text x="404" y="216">12</text>
+  <text x="470" y="216">14</text><text x="536" y="216">16</text><text x="602" y="216">18</text>
+  <text x="668" y="216">20</text><text x="734" y="216">22</text><text x="800" y="216">24</text>
+  <text x="866" y="216">26</text><text x="932" y="216">28</text>
+</g>
+<!-- 중앙 분리선 -->
+<line x1="60" y1="300" x2="1005" y2="300" stroke="#bcae9a" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="1000" y="296" text-anchor="end" class="col">중앙 gap</text>
+<!-- 하단 레일 -->
+<line x1="60" y1="410" x2="1005" y2="410" class="blu"/>
+<text x="30" y="414" text-anchor="end" class="blut pin">－</text>
+<line x1="60" y1="430" x2="1005" y2="430" class="red"/>
+<text x="30" y="434" text-anchor="end" class="redt pin">＋</text>
+
+<!-- ===== ESP32-C3 (중앙 걸침) ===== -->
+<rect x="70" y="228" width="150" height="150" rx="4" class="esp"/>
+<text x="145" y="258" text-anchor="middle" class="pin" fill="#1f5f68">ESP32-C3</text>
+<text x="145" y="276" text-anchor="middle" class="col">중앙 분리선 위에</text>
+<text x="145" y="290" text-anchor="middle" class="col">걸쳐 꽂기</text>
+<!-- ESP32 사용 핀 라벨(우측 정렬, 겹침 없음) -->
+<g class="col" fill="#2b2722">
+  <text x="230" y="246">5V →＋레일</text>
+  <text x="230" y="300">GND →－레일</text>
+  <text x="230" y="318">3V3 →TSOP</text>
+  <text x="230" y="344">GPIO3·1·10·7 (신호)</text>
+</g>
+
+<!-- ===== PIR (12~14열) ===== -->
+<rect x="330" y="240" width="96" height="120" rx="4" class="blk"/>
+<text x="378" y="330" text-anchor="middle" class="col">VCC OUT GND</text>
+<!-- VCC→＋레일(위), GND→－레일(위), OUT→신호 -->
+<line x1="345" y1="240" x2="345" y2="192" class="red"/><circle cx="345" cy="192" r="3.5" class="redt"/>
+<line x1="411" y1="240" x2="411" y2="172" class="blu"/><circle cx="411" cy="172" r="3.5" class="blut"/>
+<line x1="378" y1="360" x2="378" y2="392" class="sig"/><circle cx="378" cy="392" r="3.5" class="sigt"/>
+<text x="378" y="408" text-anchor="middle" class="sigt col">OUT→GPIO3</text>
+
+<!-- ===== LD2410D (16~18열) ===== -->
+<rect x="512" y="240" width="96" height="120" rx="4" class="blk"/>
+<text x="560" y="330" text-anchor="middle" class="col">VCC GND OUT</text>
+<line x1="527" y1="240" x2="527" y2="192" class="red"/><circle cx="527" cy="192" r="3.5" class="redt"/>
+<line x1="560" y1="240" x2="560" y2="172" class="blu"/><circle cx="560" cy="172" r="3.5" class="blut"/>
+<line x1="593" y1="360" x2="593" y2="392" class="sig"/><circle cx="593" cy="392" r="3.5" class="sigt"/>
+<text x="593" y="408" text-anchor="middle" class="sigt col">OUT→GPIO10</text>
+
+<!-- ===== TSOP38238 (20~22열) ===== -->
+<rect x="678" y="240" width="96" height="120" rx="4" class="blk"/>
+<text x="726" y="330" text-anchor="middle" class="col">OUT GND VCC</text>
+<line x1="759" y1="240" x2="759" y2="192" class="org"/><circle cx="759" cy="192" r="3.5" class="orgt"/>
+<text x="805" y="238" class="orgt col">VCC→3V3</text>
+<line x1="726" y1="240" x2="726" y2="172" class="blu"/><circle cx="726" cy="172" r="3.5" class="blut"/>
+<line x1="693" y1="360" x2="693" y2="392" class="sig"/><circle cx="693" cy="392" r="3.5" class="sigt"/>
+<text x="693" y="408" text-anchor="middle" class="sigt col">OUT→GPIO1</text>
+
+<!-- ===== IR 송신부 (24~28열) ===== -->
+<rect x="828" y="234" width="180" height="140" rx="4" class="drv"/>
+<text x="918" y="256" text-anchor="middle" class="pin" fill="#986a1b">2N7000 + 저항 + LED×2</text>
+<g class="col" fill="#2b2722">
+  <text x="842" y="280">GPIO7 →[100Ω]→ 게이트(G)</text>
+  <text x="842" y="298">G →[10kΩ]→ －레일</text>
+  <text x="842" y="316">소스(S) → －레일</text>
+  <text x="842" y="334">드레인(D) → LED 캐소드(－)</text>
+  <text x="842" y="352">LED 애노드(＋) →[33Ω]→ ＋레일</text>
+  <text x="842" y="370" fill="#986a1b">TSAL6400 2개(각 33Ω)</text>
+</g>
+
+<!-- ===== 연결 표 ===== -->
+<text x="30" y="492" class="title" font-size="16">연결 표 (이대로 점퍼 연결)</text>
+<line x1="30" y1="502" x2="1020" y2="502" stroke="#bcae9a" stroke-width="1"/>
+<g class="cellh"><text x="40" y="524">부품 / 빵판 열</text><text x="330" y="524">＋레일(빨강)</text><text x="500" y="524">－레일(파랑)</text><text x="680" y="524">신호/기타</text></g>
+<g class="cell">
+  <text x="40" y="552">ESP32-C3  (1~9열, 중앙 걸침)</text><text x="330" y="552">5V</text><text x="500" y="552">GND</text><text x="680" y="552" class="orgt">3V3 → TSOP VCC</text>
+  <text x="40" y="576">HC-SR501 PIR  (12~14열)</text><text x="330" y="576">VCC</text><text x="500" y="576">GND</text><text x="680" y="576" class="sigt">OUT → GPIO3</text>
+  <text x="40" y="600">HLK-LD2410D  (16~18열)</text><text x="330" y="600">VCC(5V)</text><text x="500" y="600">GND</text><text x="680" y="600" class="sigt">OUT → GPIO10</text>
+  <text x="40" y="624">TSOP38238  (20~22열)</text><text x="330" y="624" class="orgt">VCC=3V3</text><text x="500" y="624">GND</text><text x="680" y="624" class="sigt">OUT → GPIO1</text>
+  <text x="40" y="648">2N7000 MOSFET  (24~26열)</text><text x="330" y="648">—</text><text x="500" y="648">소스 S · 게이트풀다운</text><text x="680" y="648" class="sigt">게이트 ← 100Ω ← GPIO7</text>
+  <text x="40" y="672">TSAL6400 ×2  (26~28열)</text><text x="330" y="672">애노드 ← 33Ω</text><text x="500" y="672">—</text><text x="680" y="672">캐소드 → MOSFET 드레인 D</text>
+</g>
+<line x1="30" y1="686" x2="1020" y2="686" stroke="#bcae9a" stroke-width="1"/>
+
+<!-- ===== 범례 / 주의 ===== -->
+<text x="30" y="722" class="cellh" font-size="14">범례</text>
+<line x1="95" y1="718" x2="130" y2="718" class="red"/><text x="138" y="722" class="note">＋ (5V)</text>
+<line x1="205" y1="718" x2="240" y2="718" class="org"/><text x="248" y="722" class="note">3.3V</text>
+<line x1="300" y1="718" x2="335" y2="718" class="blu"/><text x="343" y="722" class="note">－ (GND)</text>
+<line x1="420" y1="718" x2="455" y2="718" class="sig"/><text x="463" y="722" class="note">신호(GPIO)</text>
+<g class="note">
+  <text x="30" y="750">• 같은 열의 세로 구멍 5개(a~e 또는 f~j)는 내부에서 연결됨 → 부품 핀과 점퍼를 같은 열에 꽂으면 이어짐.</text>
+  <text x="30" y="770">• MOSFET은 브레드보드용 관통형 2N7000(TO-92, 다리 G·D·S) 사용. IR LED는 GPIO 직접 금지 → 반드시 MOSFET 경유.</text>
+  <text x="30" y="790">• LD2410D는 5V 전원 · 1.25mm 5핀 케이블. 재실만 쓰면 OUT핀, 상세값은 UART(TX/RX) 옵션.</text>
+  <text x="30" y="810">• TSOP38238 VCC(3.3V)에 100Ω+4.7µF+0.1µF 디커플링. · 라이브러리 "IRremoteESP8266", Partition=Huge APP.</text>
+  <text x="30" y="830" fill="#756b5f">• 기존: DHT22=GPIO4, SCD41(I2C)=GPIO5/6. 부트스트랩 GPIO2/8/9은 사용 회피.</text>
+</g>
+</svg>
